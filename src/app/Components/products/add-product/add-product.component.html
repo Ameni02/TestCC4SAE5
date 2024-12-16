@@ -1,1 +1,52 @@
-<p>add-product works!</p>
+<div class="container">
+    <div class="row">
+      <h3>Add New Product</h3>
+    </div>
+    <div class="row">
+      <form [formGroup]="product" (ngSubmit)="Add()">
+        <div class="mb-3">
+          <label>Product Name:</label>
+          <input class="form-control" formControlName="name">
+          <div class="alert alert-danger" *ngIf="name!.invalid && (name!.touched || name!.dirty)">
+            <div *ngIf="name!.hasError('required')">Product name is required.</div>
+            
+          </div>
+        </div>
+  
+        <div class="mb-3">
+          <label>Product Description:</label>
+          <textarea class="form-control" formControlName="description"></textarea>
+          <div class="alert alert-danger" *ngIf="description!.invalid && (description!.touched || description!.dirty)">
+            <div *ngIf="description!.hasError('required')">Product description is required.</div>
+          </div>
+        </div>
+  
+        <div class="mb-3">
+          <label>Price:</label>
+          <input type="number" class="form-control" formControlName="price">
+          <div class="alert alert-danger" *ngIf="price!.invalid && (price!.touched || price!.dirty)">
+            <div *ngIf="price!.hasError('required')">Price is required.</div>
+            <div *ngIf="price!.hasError('min')">Price must be positif</div>
+          </div>
+        </div>
+  
+        <div class="mb-3">
+          <label>Available:</label>
+          <div>
+            <input type="radio" formControlName="available" value="true"> Yes
+            <input type="radio" formControlName="available" value="false"> No
+          </div>
+        </div>
+  
+        <div class="mb-3">
+          <label>Likes:</label>
+          <input class="form-control" formControlName="likes">
+        </div>
+  
+        <div class="mb-3">
+          <button type="submit" class="btn btn-outline-primary" [disabled]="product.invalid">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  

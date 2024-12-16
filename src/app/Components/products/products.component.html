@@ -1,1 +1,67 @@
-<p>products works!</p>
+<div class="container">
+    <div class="row">
+    
+      <h2>Ajouter un produit</h2>
+      <form #productForm="ngForm">
+        <div class="form-group">
+          <label for="productName">Nom du produit</label>
+          <input
+            type="text"
+            id="productName"
+            class="form-control"
+            name="productName"
+            
+          />
+        </div>
+        
+        <div class="form-group">
+          <label for="productDescription">Description</label>
+          <textarea
+            id="productDescription"
+            class="form-control"
+            name="productDescription"
+          
+          ></textarea>
+        </div>
+  
+        <div class="form-group">
+          <label for="productPrice">Prix</label>
+          <input
+            type="number"
+            id="productPrice"
+            class="form-control"
+            name="productPrice"
+         
+          />
+        </div>
+  
+       
+        <button type="submit" class="btn btn-primary">Ajouter le produit</button>
+      </form>
+  
+      <h3 class="text-center mt-5">Liste des produits</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Nom</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>available </th>
+            <th>Likes <th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of listProducts " >
+            <td>{{ product.name }}</td>
+            <td>{{ product.description }}</td>
+            <td>{{ product.price }}</td>
+            <td>{{ product.available}}/td>
+                <td>{{ product.likes}}</td>
+
+            
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
